@@ -43,7 +43,7 @@ h2 {
   justify-content: center;
   font-size: 3rem;
   font-weight: bold;
-  border: 3px solid black;
+  border: 3px solid green;
   transition: background 0.2s ease-in-out;
 }
 
