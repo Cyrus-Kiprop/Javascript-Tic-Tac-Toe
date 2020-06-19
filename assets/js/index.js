@@ -6,8 +6,8 @@ game.start()
 function TicTacToe() {
     // body...
     const board = new Board()
-    const firstPlayer = new Player('EXES', board)
-    const secondPlayer = new Player('OOZ', board)
+    const firstPlayer = new Player('EXES', board, 'X')
+    const secondPlayer = new Player('OOZ', board, 'O')
 
     let counter = 0
 
@@ -33,8 +33,9 @@ function TicTacToe() {
     }
 }
 
-function Player(name, board) {
+function Player(name, board, signature) {
     this.name = name;
+    this.signature = signature
     // attribute accessor
     this.getName = () => name
 
@@ -46,8 +47,8 @@ function Player(name, board) {
         })
     }
     const makeMove = (event) => {
-        const { target } = event.target;
-        target.innerText = 'X';
+        const { target } = event;
+        target.innerText = this.signature;
         board.cells.forEach(element => element.removeEventListener('click', makeMove))
     }
 
@@ -55,5 +56,4 @@ function Player(name, board) {
 
 function Board() {
     this.cells = Array.from(document.querySelectorAll('div.block'));
-    console.log(this.cells)
 }
