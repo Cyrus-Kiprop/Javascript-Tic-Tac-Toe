@@ -40,10 +40,13 @@ const gameUtils = (function () {
   const drawUI = () => {
     container.innerHTML = '';
     const div = document.createElement('div');
-    const h1 = document.createElement('h1');
-    h1.innerHTML = `Its a Draw`;
-    h1.setAttribute('class', 'draw');
-    div.appendChild(h1);
+		const h2 = document.createElement('h2');
+		const h1 = document.createElement('h1');
+    h1.innerHTML = `Tic-Tac-Toe`;
+    h1.setAttribute('class', 'banner');
+    h2.innerHTML = `Its a Draw`;
+    h2.setAttribute('class', 'draw');
+    div.appendChild(h2);
     container.appendChild(div);
     container.setAttribute('class', 'bg-dark');
     return container;
