@@ -75,25 +75,24 @@ const gameUtils = (function () {
   };
 })();
 
-const game = new TicTacToe();
-
 const form = document.getElementById('welcome-form');
 form.addEventListener('submit', (event) => {
-  const player1 = document.getElementById('player-one-name');
-  const player2 = document.getElementById('player-two-name');
+  const player1 = document.getElementById('player-one-name').value || 'player1';
+  const player2 = document.getElementById('player-two-name').value || 'player2';
   const board = document.getElementById('play-area');
   event.preventDefault();
   form.classList.toggle('none');
   board.classList.toggle('none');
+
+  const game = new TicTacToe(player1, player2);
+  game.start();
 });
 
-game.start();
-
-function TicTacToe() {
+function TicTacToe(player1, player2) {
   // body...
   const board = new Board();
-  const firstPlayer = new Player('EXES', board, 'X');
-  const secondPlayer = new Player('OOZ', board, 'O');
+  const firstPlayer = new Player(player1, board, 'X');
+  const secondPlayer = new Player(player2, board, 'O');
 
   let counter = 0;
 
