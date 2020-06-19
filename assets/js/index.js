@@ -17,6 +17,20 @@ const boardUtils = (function() {
     }
 })()
 
+const gameUtils = (function() {
+    const container = document.getElementById('container')
+    const winningMessage = () => {}
+    const drawMessage = () => {}
+    const winUI = () => {}
+
+    const drawUI = () => {}
+
+    return {
+        winningMessage,
+        drawMessage
+    }
+})()
+
 const game = new TicTacToe()
 
 game.start()
@@ -47,6 +61,9 @@ function TicTacToe() {
         // check for a win / draw before next turn
         if (board.isWinner() || board.isDraw()) {
             console.log('we have a draw')
+
+            // congratulations
+
 
             // perform a reset
             return gameReset()
