@@ -17,7 +17,6 @@ const boardUtils = (function() {
     }
 })()
 
-
 const game = new TicTacToe()
 
 game.start()
@@ -39,10 +38,18 @@ function TicTacToe() {
         takeTurns()
     }
 
+    function gameReset() {
+        board.reset()
+        return counter = 0
+    }
+
     function takeTurns() {
         // check for a win / draw before next turn
         if (board.isWinner() || board.isDraw()) {
             console.log('we have a draw')
+
+            // perform a reset
+            return gameReset()
         }
 
         if (counter % 2 === 0) {
@@ -104,6 +111,10 @@ function Board() {
         return this.cells.every(cell => ['X', 'O'].includes(cell.innerText))
     }
 
+    this.reset = function() {
+        return this.cells.forEach(cell => cell.innerText = '')
+        // body...
+    }
 
 
 }
