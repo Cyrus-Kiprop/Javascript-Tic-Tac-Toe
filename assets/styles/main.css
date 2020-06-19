@@ -86,7 +86,8 @@ h2 {
   border-right: none;
 }
 
-.winner {
+.winner,
+.draw {
   color: white;
   font-size: 30px;
   font-family: 'Montserrat', sans-serif;
