@@ -1,4 +1,23 @@
 // using the object oriented way
+
+const boardUtils = (function() {
+    const WINNING_COMBINATIONS = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+
+    ]
+    return {
+        WINNING_COMBINATIONS
+    }
+})()
+
+
 const game = new TicTacToe()
 
 game.start()
@@ -21,9 +40,12 @@ function TicTacToe() {
     }
 
     function takeTurns() {
+        // check for a win / draw before next turn
+        if (board.isWinner()) {
+            console.log('we have a winner')
+        }
 
         if (counter % 2 === 0) {
-            console.log(counter)
             firstPlayer.myTurn()
 
         } else {
@@ -40,9 +62,7 @@ function Player(name, board, signature) {
     this.getName = () => name
 
     this.myTurn = function() {
-        console.log(board)
         board.cells.forEach(cell => {
-            console.log(cell)
             cell.addEventListener('click', makeMove)
         })
     }
@@ -56,4 +76,30 @@ function Player(name, board, signature) {
 
 function Board() {
     this.cells = Array.from(document.querySelectorAll('div.block'));
+
+
+    // check for a winner
+    this.isWinner = function() {
+        let winner = false
+
+        const positions = this.cells;
+
+        boardUtils.WINNING_COMBINATIONS.forEach((combination) => {
+            // combinatins are made up of three cells
+            const firstCell = positions[combination[0]].innerText;
+            const secondCell = positions[combination[1]].innerText;
+            const thirdCell = positions[combination[2]].innerText;
+
+            const confirmWin = firstCell !== '' && secondCell === firstCell && thirdCell === secondCell
+
+            if (confirmWin) {
+                winner = true
+            }
+        })
+
+        return winner;
+    }
+
+
+
 }
