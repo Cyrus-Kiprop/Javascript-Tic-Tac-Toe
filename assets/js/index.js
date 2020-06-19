@@ -30,9 +30,10 @@ const gameUtils = (function () {
 
   const winDrawUI = (message) => {
     // container.innerHTML = '';
+    const hide = document.getElementById('hide');
+    hide.style.display = 'none';
     const div = document.createElement('div');
     div.setAttribute('class', 'bg-dark');
-
     // banner
     const h1 = document.createElement('h1');
     h1.innerHTML = `Tic-Tac-Toe`;
@@ -80,7 +81,7 @@ const game = new TicTacToe();
 game.start();
 
 function TicTacToe() {
-  // body...
+  // body...  
   const board = new Board();
   const firstPlayer = new Player('EXES', board, 'X');
   const secondPlayer = new Player('OOZ', board, 'O');
@@ -143,8 +144,8 @@ function Player(name, board, signature) {
 
   this.myTurn = function () {
     board.cells.forEach((cell) => {
-      if (cell.innerHTML===''){
-      cell.addEventListener('click', makeMove);
+      if (cell.innerHTML === '') {
+        cell.addEventListener('click', makeMove);
       }
     });
   };
