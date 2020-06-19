@@ -41,8 +41,8 @@ function TicTacToe() {
 
     function takeTurns() {
         // check for a win / draw before next turn
-        if (board.isWinner()) {
-            console.log('we have a winner')
+        if (board.isWinner() || board.isDraw()) {
+            console.log('we have a draw')
         }
 
         if (counter % 2 === 0) {
@@ -98,6 +98,10 @@ function Board() {
         })
 
         return winner;
+    }
+
+    this.isDraw = function() {
+        return this.cells.every(cell => ['X', 'O'].includes(cell.innerText))
     }
 
 
