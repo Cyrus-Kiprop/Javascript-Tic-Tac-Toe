@@ -32,6 +32,8 @@ const gameUtils = (function () {
     // container.innerHTML = '';
     const div = document.createElement('div');
     div.setAttribute('class', 'bg-dark');
+    const hide = document.getElementById('hide');
+    hide.style.display = 'none';
 
     // banner
     const h1 = document.createElement('h1');
@@ -65,7 +67,8 @@ const gameUtils = (function () {
   };
   const handleGameRestart = (node, board) => {
     node.style.display = 'none';
-    // board.reset();
+    // board.reset
+    hide.style.display = 'block';
     return (counter = 0);
   };
 
