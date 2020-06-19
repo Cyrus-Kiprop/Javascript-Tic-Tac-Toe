@@ -81,7 +81,7 @@ const game = new TicTacToe();
 game.start();
 
 function TicTacToe() {
-  // body...  
+  // body...
   const board = new Board();
   const firstPlayer = new Player('EXES', board, 'X');
   const secondPlayer = new Player('OOZ', board, 'O');
