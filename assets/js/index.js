@@ -205,6 +205,5 @@ function Board() {
 
   this.reset = function () {
     return this.cells.forEach((cell) => (cell.innerText = ''));
-    // body...
   };
 }
