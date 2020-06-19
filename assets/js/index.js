@@ -30,10 +30,9 @@ const gameUtils = (function () {
 
   const winDrawUI = (message) => {
     // container.innerHTML = '';
-    const hide = document.getElementById('hide');
-    hide.style.display = 'none';
     const div = document.createElement('div');
     div.setAttribute('class', 'bg-dark');
+
     // banner
     const h1 = document.createElement('h1');
     h1.innerHTML = `Tic-Tac-Toe`;
@@ -64,9 +63,9 @@ const gameUtils = (function () {
     // container.setAttribute('class', 'bg-dark');
     return container;
   };
-  const handleGameRestart = (node) => {
+  const handleGameRestart = (node, board) => {
     node.style.display = 'none';
-    board.reset();
+    // board.reset();
     return (counter = 0);
   };
 
@@ -78,10 +77,20 @@ const gameUtils = (function () {
 
 const game = new TicTacToe();
 
+const form = document.getElementById('welcome-form');
+form.addEventListener('submit', (event) => {
+  const player1 = document.getElementById('player-one-name');
+  const player2 = document.getElementById('player-two-name');
+  const board = document.getElementById('play-area');
+  event.preventDefault();
+  form.classList.toggle('none');
+  board.classList.toggle('none');
+});
+
 game.start();
 
 function TicTacToe() {
-  // body...  
+  // body...
   const board = new Board();
   const firstPlayer = new Player('EXES', board, 'X');
   const secondPlayer = new Player('OOZ', board, 'O');
@@ -132,6 +141,7 @@ function TicTacToe() {
     } else {
       secondPlayer.myTurn();
     }
+    console.log(counter);
     counter += 1;
   }
 }
@@ -152,8 +162,9 @@ function Player(name, board, signature) {
   const makeMove = (event) => {
     const { target } = event;
     target.innerText = this.signature;
+    console.log(target);
     board.cells.forEach((element) =>
-      element.removeEventListener('click', makeMove)
+      element.removeEventListener('click', makeMove, { useCapture: true })
     );
   };
 }
