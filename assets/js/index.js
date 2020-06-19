@@ -19,9 +19,16 @@ const boardUtils = (function() {
 
 const gameUtils = (function() {
     const container = document.getElementById('container')
-    const winningMessage = () => {}
+    const winningMessage = () => {
+		return winUI()
+		
+	}
     const drawMessage = () => {}
-    const winUI = () => {}
+    const winUI = () => {
+		container.innerHTML="";
+		const div=document.createElement('div');
+		div.innerHTML='CongratulationHE ma'
+	}
 
     const drawUI = () => {}
 
@@ -63,7 +70,7 @@ function TicTacToe() {
             console.log('we have a draw')
 
             // congratulations
-
+			gameUtils.winningMessage();
 
             // perform a reset
             return gameReset()
