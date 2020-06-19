@@ -29,8 +29,9 @@ const gameUtils = (function() {
     }
 
     const winDrawUI = (message) => {
-        container.innerHTML = '';
+        // container.innerHTML = '';
         const div = document.createElement('div');
+        div.setAttribute('class', 'bg-dark')
 
         // banner
         const h1 = document.createElement('h1');
@@ -46,15 +47,27 @@ const gameUtils = (function() {
 
         // reset the game
         const btn = document.createElement('btn');
-        btn.setAttribute('class', 'btn btn-success btn-lg')
+        btn.setAttribute('class', 'btn btn-warning reset-btn')
+        btn.innerHTML = 'Reset'
         btn.addEventListener('click', () => handleGameReset())
         div.appendChild(btn);
 
+        // restart the game
+        const btnRestart = document.createElement('btn');
+        btnRestart.setAttribute('class', 'btn btn-success reset-btn')
+        btnRestart.innerHTML = 'Restart the Game'
+        btnRestart.addEventListener('click', () => handleGameRestart(div))
+        div.appendChild(btnRestart);
+
         container.appendChild(div);
-        container.setAttribute('class', 'bg-dark');
+        // container.setAttribute('class', 'bg-dark');
         return container;
     };
-
+    const handleGameRestart = (node) => {
+        node.style.display = 'none'
+        board.reset();
+        return counter = 0;
+    }
 
 
     return {
