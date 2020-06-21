@@ -14,12 +14,13 @@ const boardUtils = (function boardUtils() {
   return {
     WINNING_COMBINATIONS,
   };
-}());
+})();
 
 const gameUtils = (function gameUtils() {
   const container = document.getElementById('container');
 
-  const winningMessage = (player) => winDrawUI(`Congratulation ${player} is the winner!!`);
+  const winningMessage = (player) =>
+    winDrawUI(`Congratulation ${player} is the winner!!`);
 
   const drawMessage = () => winDrawUI("It's a draw ");
 
@@ -42,14 +43,14 @@ const gameUtils = (function gameUtils() {
     div.appendChild(h2);
 
     const btn = document.createElement('btn');
-    btn.setAttribute('class', 'btn btn-warning reset-btn');
+    btn.setAttribute('class', 'btn btn-ov reset-btn');
     btn.innerHTML = 'Reset';
     btn.addEventListener('click', () => handleGameReset());
     div.appendChild(btn);
 
     const btnRestart = document.createElement('btn');
-    btnRestart.setAttribute('class', 'btn btn-success reset-btn');
-    btnRestart.innerHTML = 'Restart the Game';
+    btnRestart.setAttribute('class', 'btn btn-ov reset-btn');
+    btnRestart.innerHTML = 'Restart';
     btnRestart.addEventListener('click', () => handleGameRestart(div, hide));
     div.appendChild(btnRestart);
 
@@ -58,14 +59,14 @@ const gameUtils = (function gameUtils() {
   };
   const handleGameRestart = (node, hide) => {
     node.style.display = 'none';
-    hide.style.display = 'block';
+    hide.style.display = 'flex';
   };
 
   return {
     winningMessage,
     drawMessage,
   };
-}());
+})();
 
 const form = document.getElementById('welcome-form');
 form.addEventListener('submit', (event) => {
@@ -169,9 +170,10 @@ function Board() {
       const secondCell = positions[combination[1]].innerText;
       const thirdCell = positions[combination[2]].innerText;
 
-      const confirmWin = firstCell !== ''
-        && secondCell === firstCell
-        && thirdCell === secondCell;
+      const confirmWin =
+        firstCell !== '' &&
+        secondCell === firstCell &&
+        thirdCell === secondCell;
 
       if (confirmWin) {
         winner = true;

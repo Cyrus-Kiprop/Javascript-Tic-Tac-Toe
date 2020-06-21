@@ -1,15 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
 
+body {
+  background-color: #0a192f;
+  padding-top: 6rem;
+}
+
 .container {
   font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  background-color: #172a45;
+  font-weight: 600;
+  color: rgb(204, 214, 246);
+  /* border-radius: 10px; */
+  border: 1px solid rgb(100, 255, 218);
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #container-none {
   display: none;
+}
+
+.form-group label {
+  color: rgb(100, 255, 218);
 }
 
 .container h1,
@@ -48,6 +68,7 @@ h2 {
   width: 300px;
   height: 300px;
   grid-template-columns: auto auto auto;
+  margin: 4rem 0;
 }
 
 .block {
@@ -58,13 +79,14 @@ h2 {
   justify-content: center;
   font-size: 3rem;
   font-weight: bold;
-  border: 3px solid green;
+  border: 2px solid rgb(100, 255, 218);
   transition: background 0.2s ease-in-out;
+  color: rgb(100, 255, 218);
 }
 
 .block:hover {
   cursor: pointer;
-  background: lightgrey;
+  background-color: rgba(100, 255, 218, 0.07);
 }
 
 #block_0,
@@ -93,10 +115,10 @@ h2 {
 
 .winner,
 .draw {
-  color: white;
   font-size: 30px;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+  color: rgb(100, 255, 218);
 }
 
 .bg-dark {
@@ -105,15 +127,17 @@ h2 {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: hsla(0, 100%, 30%, 0.3);
+  background-color: rgba(100, 255, 218, 0.07) !important;
   height: 500px;
   padding: 0 4rem;
   margin: auto;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   width: 800px;
   position: absolute;
-  top: 4rem;
+  top: 2rem;
   left: 15%;
+  border: 1px solid rgb(100, 255, 218);
+  box-shadow: rgba(2, 12, 27, 0.7) 0px 10px 30px -10px;
 }
 
 .banner {
@@ -126,7 +150,18 @@ h2 {
 
 .reset-btn {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.85rem;
-  font-weight: 500;
+  font-size: 1.4rem;
+  color: inherit;
   margin-top: 3rem;
+}
+
+.btn-ov {
+  border: 1px solid rgb(100, 255, 218);
+  backgrond-color: #0a192f;
+  color: inherit;
+}
+
+.btn-ov:hover {
+  color: rgb(100, 255, 218);
+  background-color: rgba(100, 255, 218, 0.07) !important;
 }
