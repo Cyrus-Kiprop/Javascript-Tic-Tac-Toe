@@ -11,10 +11,9 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
-  background-color: #172a45;
+  background-color: #0a192f;
   font-weight: 600;
   color: rgb(204, 214, 246);
-  /* border-radius: 10px; */
   border: 1px solid rgb(100, 255, 218);
 }
 
@@ -69,6 +68,23 @@ h2 {
   height: 300px;
   grid-template-columns: auto auto auto;
   margin: 4rem 0;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-name: rotation;
+  animation-iteration-count: 3;
+  transform-origin: right center;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+    transform-origin: center center;
+  }
+
+  to {
+    transform: rotate(360deg);
+    transform-origin: center center;
+  }
 }
 
 .block {
@@ -131,7 +147,6 @@ h2 {
   height: 500px;
   padding: 0 4rem;
   margin: auto;
-  /* border-radius: 10px; */
   width: 800px;
   position: absolute;
   top: 2rem;
@@ -157,7 +172,7 @@ h2 {
 
 .btn-ov {
   border: 1px solid rgb(100, 255, 218);
-  backgrond-color: #0a192f;
+  background-color: #0a192f;
   color: inherit;
 }
 
