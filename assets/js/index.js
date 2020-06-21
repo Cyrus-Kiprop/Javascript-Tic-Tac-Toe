@@ -1,6 +1,6 @@
 // using the object oriented way
 
-const boardUtils = (function () {
+const boardUtils = (function boardUtils() {
   const WINNING_COMBINATIONS = [
     [0, 1, 2],
     [3, 4, 5],
@@ -14,19 +14,16 @@ const boardUtils = (function () {
   return {
     WINNING_COMBINATIONS,
   };
-})();
+}());
 
-const gameUtils = (function () {
+const gameUtils = (function gameUtils() {
   const container = document.getElementById('container');
 
-  const winningMessage = (player) =>
-    winDrawUI(`Congratulation ${player} is the winner!!`);
+  const winningMessage = (player) => winDrawUI(`Congratulation ${player} is the winner!!`);
 
   const drawMessage = () => winDrawUI("It's a draw ");
 
-  const handleGameReset = () => {
-    return location.reload();
-  };
+  const handleGameReset = () => window.location.reload();
 
   const winDrawUI = (message) => {
     // container.innerHTML = '';
@@ -37,7 +34,7 @@ const gameUtils = (function () {
 
     // banner
     const h1 = document.createElement('h1');
-    h1.innerHTML = `Tic-Tac-Toe`;
+    h1.innerHTML = 'Tic-Tac-Toe';
     h1.setAttribute('class', 'banner');
     div.appendChild(h1);
 
@@ -58,25 +55,24 @@ const gameUtils = (function () {
     const btnRestart = document.createElement('btn');
     btnRestart.setAttribute('class', 'btn btn-success reset-btn');
     btnRestart.innerHTML = 'Restart the Game';
-    btnRestart.addEventListener('click', () => handleGameRestart(div));
+    btnRestart.addEventListener('click', () => handleGameRestart(div, hide));
     div.appendChild(btnRestart);
 
     container.appendChild(div);
-    // container.setAttribute('class', 'bg-dark');
     return container;
   };
-  const handleGameRestart = (node, board) => {
+  const handleGameRestart = (node, hide) => {
     node.style.display = 'none';
-    // board.reset
     hide.style.display = 'block';
-    return (counter = 0);
+    // counter = 0;
+    // return counter;
   };
 
   return {
     winningMessage,
     drawMessage,
   };
-})();
+}());
 
 const form = document.getElementById('welcome-form');
 form.addEventListener('submit', (event) => {
@@ -99,7 +95,7 @@ function TicTacToe(player1, player2) {
 
   let counter = 0;
 
-  this.start = function (argument) {
+  this.start = function start() {
     const options = {
       childList: true,
     };
@@ -110,7 +106,8 @@ function TicTacToe(player1, player2) {
 
   function gameReset() {
     board.reset();
-    return (counter = 0);
+    counter = 0;
+    return counter;
   }
 
   function isWinOrDraw() {
@@ -143,8 +140,8 @@ function TicTacToe(player1, player2) {
     } else {
       secondPlayer.myTurn();
     }
-    console.log(counter);
     counter += 1;
+    return counter;
   }
 }
 
@@ -154,7 +151,7 @@ function Player(name, board, signature) {
   // attribute accessor
   this.getName = () => name;
 
-  this.myTurn = function () {
+  this.myTurn = function myTurn() {
     board.cells.forEach((cell) => {
       if (cell.innerHTML === '') {
         cell.addEventListener('click', makeMove);
@@ -164,10 +161,9 @@ function Player(name, board, signature) {
   const makeMove = (event) => {
     const { target } = event;
     target.innerText = this.signature;
-    console.log(target);
-    board.cells.forEach((element) =>
-      element.removeEventListener('click', makeMove, { useCapture: true })
-    );
+    board.cells.forEach((element) => {
+      element.removeEventListener('click', makeMove, { useCapture: true });
+    });
   };
 }
 
@@ -175,7 +171,7 @@ function Board() {
   this.cells = Array.from(document.querySelectorAll('div.block'));
 
   // check for a winner
-  this.isWinner = function () {
+  this.isWinner = function isWinner() {
     let winner = false;
 
     const positions = this.cells;
@@ -186,10 +182,9 @@ function Board() {
       const secondCell = positions[combination[1]].innerText;
       const thirdCell = positions[combination[2]].innerText;
 
-      const confirmWin =
-        firstCell !== '' &&
-        secondCell === firstCell &&
-        thirdCell === secondCell;
+      const confirmWin = firstCell !== ''
+        && secondCell === firstCell
+        && thirdCell === secondCell;
 
       if (confirmWin) {
         winner = true;
@@ -199,11 +194,13 @@ function Board() {
     return winner;
   };
 
-  this.isDraw = function () {
+  this.isDraw = function isDraw() {
     return this.cells.every((cell) => ['X', 'O'].includes(cell.innerText));
   };
 
-  this.reset = function () {
-    return this.cells.forEach((cell) => (cell.innerText = ''));
+  this.reset = function reset() {
+    return this.cells.forEach((cell) => {
+      cell.innerText = '';
+    });
   };
 }
