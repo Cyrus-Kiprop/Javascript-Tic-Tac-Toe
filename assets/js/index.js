@@ -14,13 +14,12 @@ const boardUtils = (function boardUtils() {
   return {
     WINNING_COMBINATIONS,
   };
-})();
+}());
 
 const gameUtils = (function gameUtils() {
   const container = document.getElementById('container');
 
-  const winningMessage = (player) =>
-    winDrawUI(`Congratulation ${player} is the winner!!`);
+  const winningMessage = (player) => winDrawUI(`Congratulation ${player} is the winner!!`);
 
   const drawMessage = () => winDrawUI("It's a draw ");
 
@@ -66,7 +65,7 @@ const gameUtils = (function gameUtils() {
     winningMessage,
     drawMessage,
   };
-})();
+}());
 
 const form = document.getElementById('welcome-form');
 form.addEventListener('submit', (event) => {
@@ -170,10 +169,9 @@ function Board() {
       const secondCell = positions[combination[1]].innerText;
       const thirdCell = positions[combination[2]].innerText;
 
-      const confirmWin =
-        firstCell !== '' &&
-        secondCell === firstCell &&
-        thirdCell === secondCell;
+      const confirmWin = firstCell !== ''
+        && secondCell === firstCell
+        && thirdCell === secondCell;
 
       if (confirmWin) {
         winner = true;

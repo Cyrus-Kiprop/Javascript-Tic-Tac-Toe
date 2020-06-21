@@ -152,7 +152,7 @@ h2 {
   top: 2rem;
   left: 15%;
   border: 1px solid rgb(100, 255, 218);
-  box-shadow: rgba(2, 12, 27, 0.7) 0px 10px 30px -10px;
+  box-shadow: rgba(2, 12, 27, 0.7) 0 10px 30px -10px;
 }
 
 .banner {
