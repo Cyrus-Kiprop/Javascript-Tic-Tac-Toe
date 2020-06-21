@@ -26,32 +26,27 @@ const gameUtils = (function gameUtils() {
   const handleGameReset = () => window.location.reload();
 
   const winDrawUI = (message) => {
-    // container.innerHTML = '';
     const div = document.createElement('div');
     div.setAttribute('class', 'bg-dark');
     const hide = document.getElementById('hide');
     hide.style.display = 'none';
 
-    // banner
     const h1 = document.createElement('h1');
     h1.innerHTML = 'Tic-Tac-Toe';
     h1.setAttribute('class', 'banner');
     div.appendChild(h1);
 
-    // the congratulation message
     const h2 = document.createElement('h2');
     h2.innerHTML = message;
     h2.setAttribute('class', 'winner');
     div.appendChild(h2);
 
-    // reset the game
     const btn = document.createElement('btn');
     btn.setAttribute('class', 'btn btn-warning reset-btn');
     btn.innerHTML = 'Reset';
     btn.addEventListener('click', () => handleGameReset());
     div.appendChild(btn);
 
-    // restart the game
     const btnRestart = document.createElement('btn');
     btnRestart.setAttribute('class', 'btn btn-success reset-btn');
     btnRestart.innerHTML = 'Restart the Game';
@@ -64,8 +59,6 @@ const gameUtils = (function gameUtils() {
   const handleGameRestart = (node, hide) => {
     node.style.display = 'none';
     hide.style.display = 'block';
-    // counter = 0;
-    // return counter;
   };
 
   return {
@@ -88,7 +81,6 @@ form.addEventListener('submit', (event) => {
 });
 
 function TicTacToe(player1, player2) {
-  // body...
   const board = new Board();
   const firstPlayer = new Player(player1, board, 'X');
   const secondPlayer = new Player(player2, board, 'O');
@@ -111,12 +103,10 @@ function TicTacToe(player1, player2) {
   }
 
   function isWinOrDraw() {
-    // check for a win / draw before next turn
     let decide = false;
 
     const player = counter % 2 === 0 ? secondPlayer : firstPlayer;
     if (board.isWinner()) {
-      // congratulations
       gameUtils.winningMessage(player.name);
 
       decide = true;
@@ -148,7 +138,6 @@ function TicTacToe(player1, player2) {
 function Player(name, board, signature) {
   this.name = name;
   this.signature = signature;
-  // attribute accessor
   this.getName = () => name;
 
   this.myTurn = function myTurn() {
@@ -170,14 +159,12 @@ function Player(name, board, signature) {
 function Board() {
   this.cells = Array.from(document.querySelectorAll('div.block'));
 
-  // check for a winner
   this.isWinner = function isWinner() {
     let winner = false;
 
     const positions = this.cells;
 
     boardUtils.WINNING_COMBINATIONS.forEach((combination) => {
-      // combinatins are made up of three cells
       const firstCell = positions[combination[0]].innerText;
       const secondCell = positions[combination[1]].innerText;
       const thirdCell = positions[combination[2]].innerText;
