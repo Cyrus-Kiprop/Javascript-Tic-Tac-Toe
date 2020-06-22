@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script src="https://use.fontawesome.com/1609b52a5b.js"></script>
+    <link rel="stylesheet" href="./assets/styles/reset.css" />
+    <link rel="stylesheet" href="./assets/styles/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript Tic-Tac-Toe</title>
+  </head>
+
+  <body>
+    <div id="container" class="container">
+      <div class="game-container" id="hide">
+        <h2 class="mb-4 mt-5">Tic-Tac-Toe Game</h2>
+        <form id="welcome-form">
+          <div class="form-group">
+            <label for="playerOne">[X] Player one:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="player-one-name"
+              placeholder="Enter name of the player"
+            />
+          </div>
+          <div class="form-group">
+            <label for="playerOne">[O] Player two:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="player-two-name"
+              placeholder="Enter name of the player"
+            />
+          </div>
+          <button type="" id="submitPlayerNames" class="btn btn-ov mb-5">
+            Start
+          </button>
+        </form>
+        <div class="none play-area" id="play-area">
+          <div id="block_0" class="block"></div>
+          <div id="block_1" class="block"></div>
+          <div id="block_2" class="block"></div>
+          <div id="block_3" class="block"></div>
+          <div id="block_4" class="block"></div>
+          <div id="block_5" class="block"></div>
+          <div id="block_6" class="block"></div>
+          <div id="block_7" class="block"></div>
+          <div id="block_8" class="block"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
