@@ -23,6 +23,12 @@ In this project,we are building a Tic Tac Toe game made on Javascript.The tic-ta
 
 ![screenshot2](assets/images/draw.PNG)
 
+## Live Demo
+
+- [Production](https://rawcdn.githack.com/Cyrus-Kiprop/Javascript-Tic-Tac-Toe/f3ed416b343afbbd657355b035dff5a80fe92a04/index.html)
+
+- [Deployment](https://raw.githack.com/Cyrus-Kiprop/Javascript-Tic-Tac-Toe/master/index.html)
+
 ## Built With
 
 - HTML + CSS
@@ -101,6 +107,12 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - Project requested by [Microverse Program](https://www.microverse.org/).
+
+## Future Enhancement 
+
+- Adding Validation.
+- Adding AI Logic.
+- Making the UI, Mobile friendly.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
