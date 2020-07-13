@@ -112,7 +112,7 @@ Give a ⭐️ if you like this project!
 
 - Adding Validation.
 - Adding AI Logic.
-- Making the UI, Mobile friendly.
+- Making the Mobile friendly.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
