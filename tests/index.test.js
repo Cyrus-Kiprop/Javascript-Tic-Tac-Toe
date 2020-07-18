@@ -84,4 +84,10 @@ describe('Board', () => {
     board.cells[2].innerText = 'X';
     expect(board.isWinner()).toBe(true);
   });
- });
+  it('should return true if all the cells are occupied and there is not winner', () => {
+    const board = new Board();
+    mockDraw(board);
+    expect(board.isDraw()).toBe(true);
+  });
+
+});
