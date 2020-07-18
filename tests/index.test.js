@@ -90,4 +90,13 @@ describe('Board', () => {
     expect(board.isDraw()).toBe(true);
   });
 
+  it('board reset should clear all the innertext of the board cells', () => {
+    const board = new Board();
+    mockDraw(board);
+
+    board.reset();
+    board.cells.forEach((cell) => {
+      expect(cell.innerText).toBe('');
+    });
+  });
 });
