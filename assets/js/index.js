@@ -68,16 +68,19 @@ const gameUtils = (function gameUtils() {
 }());
 
 const form = document.getElementById('welcome-form');
-form.addEventListener('submit', (event) => {
-  const player1 = document.getElementById('player-one-name').value || 'player1';
-  const player2 = document.getElementById('player-two-name').value || 'player2';
-  const board = document.getElementById('play-area');
-  event.preventDefault();
-  form.classList.toggle('none');
-  board.classList.toggle('none');
 
-  const game = new TicTacToe(player1, player2);
-  game.start();
+document.addEventListener('DOMContentLoaded', () => {
+  form.addEventListener('submit', (event) => {
+    const player1 = document.getElementById('player-one-name').value || 'player1';
+    const player2 = document.getElementById('player-two-name').value || 'player2';
+    const board = document.getElementById('play-area');
+    event.preventDefault();
+    form.classList.toggle('none');
+    board.classList.toggle('none');
+
+    const game = new TicTacToe(player1, player2);
+    game.start();
+  });
 });
 
 function TicTacToe(player1, player2) {
@@ -167,7 +170,7 @@ function Board() {
     boardUtils.WINNING_COMBINATIONS.forEach((combination) => {
       const firstCell = positions[combination[0]].innerText;
       const secondCell = positions[combination[1]].innerText;
-      const thirdCell = positions[combination[2]].innerText;
+      const thirdCell = positions[combination[2]].innerText || '';
 
       const confirmWin = firstCell !== ''
         && secondCell === firstCell
@@ -191,3 +194,12 @@ function Board() {
     });
   };
 }
+
+module.exports = {
+  Board,
+  Player,
+  form,
+  gameUtils,
+  TicTacToe,
+  boardUtils,
+};
