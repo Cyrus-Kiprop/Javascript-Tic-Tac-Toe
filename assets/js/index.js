@@ -14,18 +14,18 @@ const boardUtils = (function boardUtils() {
   return {
     WINNING_COMBINATIONS,
   };
-}());
+})();
 
 const gameUtils = (function gameUtils() {
-  const container = document.getElementById('container');
-
-  const winningMessage = (player) => winDrawUI(`Congratulation ${player} is the winner!!`);
+  const winningMessage = (player) =>
+    winDrawUI(`Congratulation ${player} is the winner!!`);
 
   const drawMessage = () => winDrawUI("It's a draw ");
 
   const handleGameReset = () => window.location.reload();
 
   const winDrawUI = (message) => {
+    const container = document.getElementById('container');
     const div = document.createElement('div');
     div.setAttribute('class', 'bg-dark');
     const hide = document.getElementById('hide');
@@ -65,14 +65,16 @@ const gameUtils = (function gameUtils() {
     winningMessage,
     drawMessage,
   };
-}());
+})();
 
 const form = document.getElementById('welcome-form');
 
 document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', (event) => {
-    const player1 = document.getElementById('player-one-name').value || 'player1';
-    const player2 = document.getElementById('player-two-name').value || 'player2';
+    const player1 =
+      document.getElementById('player-one-name').value || 'player1';
+    const player2 =
+      document.getElementById('player-two-name').value || 'player2';
     const board = document.getElementById('play-area');
     event.preventDefault();
     form.classList.toggle('none');
@@ -172,9 +174,10 @@ function Board() {
       const secondCell = positions[combination[1]].innerText;
       const thirdCell = positions[combination[2]].innerText || '';
 
-      const confirmWin = firstCell !== ''
-        && secondCell === firstCell
-        && thirdCell === secondCell;
+      const confirmWin =
+        firstCell !== '' &&
+        secondCell === firstCell &&
+        thirdCell === secondCell;
 
       if (confirmWin) {
         winner = true;
@@ -195,11 +198,11 @@ function Board() {
   };
 }
 
-module.exports = {
+const game = {
   Board,
   Player,
-  form,
   gameUtils,
-  TicTacToe,
   boardUtils,
 };
+
+export default game;

@@ -1,6 +1,6 @@
-const game = require('../assets/js/index');
+import game from '../assets/js/index';
 
-const { Board, Player, form, gameUtils, TicTacToe, boardUtils } = game;
+const { Board, Player, gameUtils, boardUtils } = game;
 
 test('boardUtils should return a array of winning combinations', () => {
   expect(boardUtils.WINNING_COMBINATIONS).toEqual([
@@ -16,7 +16,6 @@ test('boardUtils should return a array of winning combinations', () => {
 });
 
 describe('Board', () => {
-  const board = new Board();
   document.body.innerHTML =
     '<div>' +
     ' <div class="block"></div>' +
@@ -69,7 +68,6 @@ describe('Board', () => {
       ' <div class="block"></div>' +
       '</div>';
     const board = new Board();
-    console.log(board.cells.length);
     expect(board.cells).toHaveLength(9);
     expect(board.cells).not.toEqual(expect.arrayContaining(expected));
   });
