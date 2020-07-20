@@ -117,8 +117,7 @@ describe('gameUtils', () => {
       '</div>';
     expect(gameUtils.drawMessage()).toBeInstanceOf(HTMLElement);
   });
-});
-​
+});​
 describe('form', () => {
   document.body.innerHTML =
     '<div>' + ' <div id="welcome-form"></div>' + '</div>';
