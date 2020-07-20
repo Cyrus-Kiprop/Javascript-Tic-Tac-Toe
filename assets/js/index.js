@@ -1,4 +1,5 @@
-// using the object oriented way
+import '../styles/reset.css';
+import '../styles/main.css';
 
 const boardUtils = (function boardUtils() {
   const WINNING_COMBINATIONS = [
@@ -14,11 +15,10 @@ const boardUtils = (function boardUtils() {
   return {
     WINNING_COMBINATIONS,
   };
-})();
+}());
 
 const gameUtils = (function gameUtils() {
-  const winningMessage = (player) =>
-    winDrawUI(`Congratulation ${player} is the winner!!`);
+  const winningMessage = (player) => winDrawUI(`Congratulation ${player} is the winner!!`);
 
   const drawMessage = () => winDrawUI("It's a draw ");
 
@@ -65,16 +65,14 @@ const gameUtils = (function gameUtils() {
     winningMessage,
     drawMessage,
   };
-})();
+}());
 
 const form = document.getElementById('welcome-form');
 
 document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', (event) => {
-    const player1 =
-      document.getElementById('player-one-name').value || 'player1';
-    const player2 =
-      document.getElementById('player-two-name').value || 'player2';
+    const player1 = document.getElementById('player-one-name').value || 'player1';
+    const player2 = document.getElementById('player-two-name').value || 'player2';
     const board = document.getElementById('play-area');
     event.preventDefault();
     form.classList.toggle('none');
@@ -174,10 +172,9 @@ function Board() {
       const secondCell = positions[combination[1]].innerText;
       const thirdCell = positions[combination[2]].innerText || '';
 
-      const confirmWin =
-        firstCell !== '' &&
-        secondCell === firstCell &&
-        thirdCell === secondCell;
+      const confirmWin = firstCell !== ''
+        && secondCell === firstCell
+        && thirdCell === secondCell;
 
       if (confirmWin) {
         winner = true;
