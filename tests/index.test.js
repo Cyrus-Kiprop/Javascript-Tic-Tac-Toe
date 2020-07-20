@@ -98,3 +98,32 @@ describe('Board', () => {
     });
   });
 });
+describe('gameUtils', () => {
+  const board = new Board();
+  const p = new Player('Hektor', board, 'X');
+  test('winningMessage', () => {
+    document.body.innerHTML =
+      '<div id="container">' +
+      ' <div id="container"></div>' +
+      ' <div id="hide">' +
+      '</div>';
+    expect(gameUtils.winningMessage('Hektor')).toBeInstanceOf(HTMLElement);
+  });
+  test('drawMessage', () => {
+    document.body.innerHTML =
+      '<div>' +
+      ' <div id="container"></div>' +
+      ' <div id="hide"></div>' +
+      '</div>';
+    expect(gameUtils.drawMessage()).toBeInstanceOf(HTMLElement);
+  });
+});
+​
+describe('form', () => {
+  document.body.innerHTML =
+    '<div>' + ' <div id="welcome-form"></div>' + '</div>';
+  const form = document.getElementById('welcome-form');
+  it('It should return an instace of HTMLelement', () => {
+    expect(form).toBeInstanceOf(HTMLElement);
+  });
+});
