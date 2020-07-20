@@ -1,8 +1,6 @@
 import game from '../assets/js/index';
 
-const {
-  Board, Player, gameUtils, boardUtils,
-} = game;
+const { Board, gameUtils, boardUtils } = game;
 
 test('boardUtils should return a array of winning combinations', () => {
   expect(boardUtils.WINNING_COMBINATIONS).toEqual([
@@ -98,29 +96,26 @@ describe('Board', () => {
     });
   });
 });
+
 describe('gameUtils', () => {
-  const board = new Board();
-  const p = new Player('Hektor', board, 'X');
   test('winningMessage', () => {
-    document.body.innerHTML =
-      '<div id="container">' +
-      ' <div id="container"></div>' +
-      ' <div id="hide">' +
-      '</div>';
+    document.body.innerHTML = '<div id="container">'
+      + ' <div id="container"></div>'
+      + ' <div id="hide">'
+      + '</div>';
     expect(gameUtils.winningMessage('Hektor')).toBeInstanceOf(HTMLElement);
   });
   test('drawMessage', () => {
-    document.body.innerHTML =
-      '<div>' +
-      ' <div id="container"></div>' +
-      ' <div id="hide"></div>' +
-      '</div>';
+    document.body.innerHTML = '<div>'
+      + ' <div id="container"></div>'
+      + ' <div id="hide"></div>'
+      + '</div>';
     expect(gameUtils.drawMessage()).toBeInstanceOf(HTMLElement);
   });
-});​
+});
+
 describe('form', () => {
-  document.body.innerHTML =
-    '<div>' + ' <div id="welcome-form"></div>' + '</div>';
+  document.body.innerHTML = '<div> <div id="welcome-form"></div>  </div>';
   const form = document.getElementById('welcome-form');
   it('It should return an instace of HTMLelement', () => {
     expect(form).toBeInstanceOf(HTMLElement);
