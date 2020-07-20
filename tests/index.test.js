@@ -1,6 +1,8 @@
 import game from '../assets/js/index';
 
-const { Board, Player, gameUtils, boardUtils } = game;
+const {
+  Board, Player, gameUtils, boardUtils,
+} = game;
 
 test('boardUtils should return a array of winning combinations', () => {
   expect(boardUtils.WINNING_COMBINATIONS).toEqual([
@@ -16,18 +18,17 @@ test('boardUtils should return a array of winning combinations', () => {
 });
 
 describe('Board', () => {
-  document.body.innerHTML =
-    '<div>' +
-    ' <div class="block"></div>' +
-    ' <div class="block"></div>' +
-    ' <div class="block"></div>' +
-    ' <div class="block"></div>' +
-    ' <div class="block"></div>' +
-    ' <div class="block"></div>' +
-    ' <div class="block"></div>' +
-    ' <div class="block"></div>' +
-    ' <div class="block"></div>' +
-    '</div>';
+  document.body.innerHTML = '<div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + '</div>';
 
   const mockDraw = (board) => {
     board.cells[0].innerText = 'X';
@@ -55,18 +56,17 @@ describe('Board', () => {
     ];
     const expected = Array.from(document.querySelectorAll('span.sm'));
     // set up the html structure
-    document.body.innerHTML =
-      '<div>' +
-      ' <div class="block"></div>' +
-      ' <div class="block"></div>' +
-      ' <div class="block"></div>' +
-      ' <div class="block"></div>' +
-      ' <div class="block"></div>' +
-      ' <div class="block"></div>' +
-      ' <div class="block"></div>' +
-      ' <div class="block"></div>' +
-      ' <div class="block"></div>' +
-      '</div>';
+    document.body.innerHTML = '<div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + '</div>';
     const board = new Board();
     expect(board.cells).toHaveLength(9);
     expect(board.cells).not.toEqual(expect.arrayContaining(expected));
