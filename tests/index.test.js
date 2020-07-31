@@ -1,6 +1,8 @@
 import game from '../assets/js/index';
 
-const { Board, gameUtils, boardUtils } = game;
+const {
+  Board, gameUtils, boardUtils, Player,
+} = game;
 
 test('boardUtils should return a array of winning combinations', () => {
   expect(boardUtils.WINNING_COMBINATIONS).toEqual([
@@ -119,5 +121,60 @@ describe('form', () => {
   const form = document.getElementById('welcome-form');
   it('It should return an instace of HTMLelement', () => {
     expect(form).toBeInstanceOf(HTMLElement);
+  });
+});
+
+// player testing
+
+describe('Player', () => {
+  // mock the Dom
+  document.body.innerHTML = '<div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + ' <div class="block"></div>'
+    + '</div>';
+
+  const board = new Board();
+
+  const p1 = new Player('Raj', board, 'X');
+  const p2 = new Player('Kip', board, 'O');
+
+  it('Should return the player Name', () => {
+    expect(p1.name).toBe('Raj');
+    expect(p2.name).toBe('Kip');
+  });
+
+  test('getName', () => {
+    expect(p1.getName()).toBe('Raj');
+    expect(p2.getName()).toBe('Kip');
+  });
+
+  test('myTurn', () => {
+    document.body.innerHTML = '<div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + ' <div class="block"></div>'
+      + '</div>';
+
+    const board = new Board();
+    const p3 = new Player('Raj', board, 'X');
+
+    p3.myTurn();
+
+    board.cells.forEach((cell) => {
+      expect(cell.getAttribute('data-clickable')).toBe('true');
+    });
   });
 });

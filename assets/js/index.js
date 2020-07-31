@@ -145,6 +145,7 @@ function Player(name, board, signature) {
 
   this.myTurn = function myTurn() {
     board.cells.forEach((cell) => {
+      cell.setAttribute('data-clickable', 'true');
       if (cell.innerHTML === '') {
         cell.addEventListener('click', makeMove);
       }
@@ -154,9 +155,11 @@ function Player(name, board, signature) {
     const { target } = event;
     target.innerText = this.signature;
     board.cells.forEach((element) => {
+      element.setAttribute('data-clickable', 'true');
       element.removeEventListener('click', makeMove, { useCapture: true });
     });
   };
+  this.playerMove = makeMove;
 }
 
 function Board() {
